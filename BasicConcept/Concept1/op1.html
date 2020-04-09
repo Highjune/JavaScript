@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 연산자</title>
+    <script>
+        // var Student = {}; Object Literal임. 제일 쉽게 만들 수 있는 방법. 그러나 이미 주어진 값을 바꾸려면 불편하다는 단점이 있다.
+
+        //객체를 만드는 2번째 방법 (java의 클래스 만드는 것과 유사)
+        function Student(hakbun, name, kor, eng, mat) {
+             //var라고 쓰면 private이다. 지역변수니까. 메서드 안에 있는 것이 지역변수.
+             // 지역변수는 반드시 var를 쓴다. 지역내에서만 쓰는 거니까 private. 밖에서 접근 안됨
+            var hakbun = hakbun; //var가 private으로 보면 된다. 그리고 리터럴이 아니므로 :이 아니라 = 이다.
+            var name = name;
+            var kor = kor;
+            var eng = eng;
+            var mat = mat;
+
+            this.getHakbun = function(){ //this가 public으로 이해.  getHakbun은 이 함수의 포인터. 왜냐하면 주소를 알고 있기 때문에
+                return hakbun;
+            }
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var chulsu = new Student('2019-01', '한지민', 90, 80, 70); //생성자 호출할 때 new를 쓴다.
+        // document.write(chulsu.hakbun); //위에서 get set 안 만든 상태에서 이렇게 호출하면 undefined뜬다. 왜냐하면 지역변수(var이고 private의미)라서 나오면 없어지니까.
+        document.write(chulsu.getHakbun());
+    </script>
+
+
+
+
+    
+</body>
+</html>

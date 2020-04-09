@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원목록</title>
+    <style>
+    /* register1과 함께 */
+    /* https://youtu.be/hfMwAMor7eI 41분부터 */
+    /* (이어서) https://youtu.be/mx10-Crrh14   */
+    
+    /* 메인창임 */
+
+
+        h2{text-align: center;}
+
+        body > table:nth-child(2) { /*body기준에서 자식들은 h2, table(첫번째), table(두번쨰) 총 3명임 / 
+            /*주의) body>table이라고 하더라도 부모 기준이기 때문에  table:nth-child(1)은 첫번재 테이블이 아님
+            /*2가지로 가능 nth of type 은 형제관점 / nth-child는 부모자식(부모 기준)관점 */
+            /* background-color: yellow; ==> 가리킨 자식이 맞는지 확인하기 위해  */
+            width : 500px; margin-left:auto; margin-right:auto; /* margin-left와 right는 페이지 중간에 오게 하기 위해 */
+        }        
+
+        body > table:nth-child(2) td:last-of-type{  /*  >는 바로 밑의 자식만, >안 쓰고 띄워쓰면 모든 자손 cf) td는 table의 자손*/
+            /* background-color : yellow;  */
+            text-align: right; /*1행 2열 테이블(테이블 2개 중 위) 중 2열이고 오른쪽 정렬해준 것 */
+        }
+ 
+        body > table:nth-child(3){  /*두번째 테이블임 */ 
+            width : 500px; margin-left:auto; margin-right:auto;  /*위의 테이블과 width를 맞춰주면 위 테이블(border없는)과 글자라인이 똑같아짐. */
+            border : 1px solid white;
+        }
+
+        body > table:nth-child(3) th{ /*자손 */ 
+            background-color: darkmagenta;
+            color:white;
+        }
+
+        body > table:nth-child(3) td { 
+            text-align:center;
+        }
+
+    </style>
+    
+    
+    <script>
+        //register.html과 함께
+        //dom레벨로 수정 (문서객체모델)
+
+        function myOpen(){
+            var cnt = document.getElementById("cnt").innerText;
+            window.open("register1.html?:cnt=" + cnt, "_blank", "width=300, height=300, left = 500, top = 300");
+            //Q) register1.html에 값을 넣어줘야 하는데 왜 ?로 줘야하는건지 궁금
+            //?가 location.href 중 search임. search가 ? 다음이니까.
+        }
+    </script>
+</head>
+<body>
+    <h2>회원명단</h2>
+
+    <table> <!--1행 2열테이블, border값을 주지 않아서 테이블처럼 보이지 않게 트릭임 -->
+        <tr>
+            <td><a href="javascript:myOpen()">회원추가</a></td> <!--1행 2열테이블의 1열 -->
+            <td>[<span id="cnt">0</span>명]</td> <!--1행 2열테이블의 2열, cf) cnt는 count의 약자 -->
+        </tr> 
+    </table>
+
+    <table>  <!--테이블 2개 중 밑의 테이블임-->
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>성별</th>
+                <th>나이</th>
+                <th>거주지</th>
+            </tr>
+        </thead>
+        <tbody id="result"></tbody>
+    </table>
+</body>
+</html>

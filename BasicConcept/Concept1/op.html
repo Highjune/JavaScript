@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaSCript 연산자</title>
+</head>
+<body>
+    <script>
+        // var a = 1;
+        // var b = 1.0;
+        // if(a==b) document.write('Equals');  /* ==는 값만 비교 */
+        // else document.write('Different');  /*js에서는 1과 1.0을 같다고 본다 */
+        // if(a===b) document.write('Equals'); /* === 는 값과 타입 둘을 비교 */
+        // else document.write('Different');  /* 값도 같다고 보고 둘다 number니까 타입도 똑같아서 equals로 본다 */
+
+        var a; //undefined
+        var b= null;  //null
+        if(a===b) document.write('Equals'); //== 으로 값만 비교한다면 둘은 같다고 보겠지만 ===으로 타입도 보니까 다르게 나온다(각각 undefined과 null)
+        else document.write('Different');  
+
+    </script>
+    
+</body>
+</html>

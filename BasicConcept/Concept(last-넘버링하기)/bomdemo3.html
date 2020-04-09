@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History, navigator Object</title>
+</head>
+<body>
+    <!--뒤로가기/앞으로가기-->
+    <!-- history - user의 방문기록 저장 -->
+
+    <!-- <a href="javascript:history.back();">BACK</a>     -->      
+    <!-- <a href="javascript:history.go(-1);">BACK</a>     back 과 같음(자주 써먹음) -->
+    <!-- <a href="javascript:history.go(0);">BACK</a>     현재위치과 같음 ex)"정말 로그아웃 하시겠습니까?" - "no"라고 하면 현재 위치 그대로-->
+    <!-- <a href="javascript:history.go(-2);">BACK</a>     전전페이지. 원하는 페이지만큼 넣을 수 있음-->
+ 
+    <!-- <a href="javascript:history.forward();">FORWARD</a>   -->
+    <!-- <a href="javascript:history.go(+1);">FORWARD</a>   forward와 같음(잘 안 씀) -->
+
+    <!--꼭 버튼으로 할 필요X, 이렇게 링크(href)로도 이벤트 먹힘-->
+    <ul>
+    <script>
+        //useragent(nagivator 중 중요한 속성 - 나의 여러 정보들(OS 등)에 대해서 알려줌)
+
+        // for(str in window.navigator) { //navigator안에 들어있는 모든 것들의 갯수만큼 다 찍음 //for in 반복문은 멤버들만 보여줌(값은 X)
+        //     document.write(str + "<br/>");
+        // }
+
+        for(str in window.navigator){  //window안에 있는 모든 naviagotor의 객체(메서드, 속성)를 다 str에 넣음
+            document.write("<li>" + str + "-->" + navigator[str] + "</li>"); // navigator[str]는 navigator.str과 똑같음. navigator안에 들어있는 str.
+        } //이 목록 중에서 useragent를 보면 OS 등 다 나옴.
+    </script>
+    </ul>
+
+</body>
+</html>

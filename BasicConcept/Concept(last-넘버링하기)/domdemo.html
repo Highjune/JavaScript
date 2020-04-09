@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+    <script>
+        //자식(button) elements 계속 추가하는 것(원래는 div에 자식이 없었는데 추가함으로써 tree구조를 변경하는 것 - dom)
+        //0310 5강(30분쯔음부터)
+
+        
+        window.onload = function() {
+            document.getElementsByClassName("btnCreate")[0] //class는 보통 여러개이므로 Element's'복수로 받는다. 
+            .addEventListener("click", function(){
+                var btn = document.createElement("button"); //<button></button> 만듬
+                var textNode = document.getElementById("txtName").value; //사람의 이름
+                textNode = document.createTextNode(textNode); // 문자열(허강준)을 textNode(허강준)으로 만듬. js에서는 데이터 타입이 없으므로 이렇게 가능함
+                btn.appendChild(textNode); //<button>허강준</button> 만든 것임  //button사이에 끼워넣는 것이니까 버튼의 자식을 만드는 것임
+                // document.getElementById("result").appendChild(btn); //자식node로 집어넣는 법임. div도 node가 되고 버튼도 node가 됨. 계속 자식을 만듬. (아래와 같이 하면 안됨)
+                document.getElementById("result").innerHTML(btn); //document.getElementById("result").가 div임 div사이니까 innerHMTL넣는것. 그런데 이렇게 하게 되면 innerHTML쓰게 되면 계속 덮어쓰게 됨. 누적해서 추가할 수 없다.
+
+            }, false); 
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txtName">
+    <input type="button" value="Add" class="btnCreate"><!--class는 동시에 무엇인가를 할 때 설정-->
+    <hr>
+    <div id="result"></div>
+</body>
+</html>

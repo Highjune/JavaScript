@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript for in statement</title>
+</head>
+<body>
+    <script>
+        var car = {"name" : "sonata", "price" : 25000000, "maker" : "Hyundai"}; //object 리터럴임. 키 : 값
+            //in 연산자는 ~ 안에 property가 있는지 없는지 확인하는 것.
+        // document.write("name" in car); //car에 name이란 애가 있나?
+        // document.write("이름" in car);  // 자동차에 이름 이란 애가 있나? 없으니까 false. 
+        
+        for(var info in car) { //()안이 참일때만. 자바의 강화된 for와 비슷하다. 
+            // document.write(info + "<br />");       //property(키)만 찍는다. (name, price, maker)
+            // document.write(car[info] + "<br />");  //이렇게 하면 값 찍는다. (sonata, 25000000, Hyundai)
+            document.write(info + " --> " + car[info] + "<br />"); //info는 name price maker임.
+        } 
+        ///////////
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+

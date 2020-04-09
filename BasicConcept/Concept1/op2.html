@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 연산자</title>
+</head>
+<body>  
+    <!--
+        name : JavaScript에서 server에 전송할 때의 이름 (name을 쓴다는 것은 servlet, jsp, asp, php, node, django 중 한개가 있다는 말)
+        class : CSS에서 사용할 이름
+        id : JavaScript의 DOM에서 사용할 때의 이름. 이 안에서 유일한 ID임. (CSS에서는 가급적 안 씀)
+    -->
+    <p>국어 : <input type = "number" id = "kor"></p>   <!-- 여기서 만약 name을 써주면 국어점수를 받아줄 서버가 있다는 말-->
+    <p>영어 : <input type = "number" id = "eng"></p>
+    <p>수학 : <input type = "number" id = "mat"></p>
+    <p>총점 : <input type = "number" id = "tot"></p>
+    <p>평균 : <input type = "number" id = "avg"></p>
+    <p>평점 :
+        <select id = "grade">
+            <option>--선택--</option>  <!--JS는 여러개면 다 배열로 본다, 선택부터 ~ F까지 총 6개-->
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>F</option>
+        </select>
+    </p>
+
+    <p><button onclick = "calc()">계산하기</button></p> <!-- on은 '클릭하는 바로 그 때!'라는 의미-->
+
+    <script> // 이렇게 script는 body의 제일 끝에 써야 된다. 위에서 버튼 다 만들고. script는 순차적이므로
+        function calc() {
+            //문자->숫자로 바꿔야 되는데 parseint로 바꾸면 됨. 그런데 integer이 없으니까 integer.parseint로 말고 그냥 parseint
+            var kor = parseInt(document.getElementById("kor").value); //element를 "kor"로 구별해서 들고 오니까 딱 1개이므로 단수(element). document는 우리 지금 보고 있는 이 문서!
+            var eng = parseInt(document.getElementById("eng").value); 
+            var mat = parseInt(document.getElementById("mat").value);
+            // alert("총점은" + (kor + eng + mat) + "점입니다.");  //이렇게 하면 text로 우리가 받는 거니까 숫자를 그대로 문자로 잇는다. 10+10+10은 30이 아니라 101010처럼 나온다.그래서 parseint~
+            var sum = kor + eng + mat;
+            var avg = sum / .3;
+            document.getElementById("tot").value = sum; //계산한 값을 sum에 넣음.
+            document.getElementById("avg").value = avg.toFixed(2); //toFixed는 표현할 소수점
+            //document.getElementById("grade"); 
+            //var grade = document.getElementById("grade").options.length; //option의 갯수를 들고 온 것임
+            // alert(grade);
+            var array = ["", "A", "B", "C", "D", "F"]; //제일 앞은 '선택'
+            var grade = (avg >= 90) ? 'A' :
+                            (avg >= 80) ? 'B' :
+                                (avg >= 70) ? 'C' :
+                                    (avg >= 60) ? 'D' : 'F';
+           document.getElementById("grade").selectedIndex = array.indexOf(grade);    //selectedIndex는 숫자밖에 안되서 가능
+        }
+        
+        //이것이 다 DOM이다. document objecet. JS에서 제일 중요한 것이 DOM이다.
+        //JS는 마치 웹에서 돌리는 어플리케이션이다. DB연동도 된다.
+        //나중에 jquery 를 쓰면 사실 위처럼 코딩 안하고 이벤트처리로 쉽게 가능.
+        
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Demo2_1</title>
+    
+    <script>
+        //         <forward, redirect>, href로 redirect
+        // forard, redirect 는 회원가입 후 메인페이지로 이동시 사용(로그인 후 로그인한 상태된 페이지로 이동 or 다시 로그인창 페이지로 이동)
+        // js는 forward는 안됨. redirect만 됨
+
+        // 1. forward - 상대경로만 가능. 유저에게 트릭 걸어서 보이게 함. 보통 에러페이지 찍을 때 forward로 함. url은 요청한 페이지, 화면은 에러메시지 보여줌(에러코드 페이지 자체를 보여주면 안되니까), 즉 화면과 url이 다름(버퍼에서 트릭써서 다르게 보이게 함)
+
+        // 2. redirect - 상대, 절대 경로 다 가능. 유저가 이동하는 것
+        // ex) 회원 가입후 나이가 어려 네이버 키즈로 이동하는 경우 절대경로가 필요(url과 화면이 같음)
+        // JS에서 redirect를 해주는 것이 replace(), href임. (redirect하는 방법 중 하나가 javascript인 것)
+
+        window.onload = setup;
+
+        function setup() {
+            document.getElementById("june").addEventListener("click", function() {
+                //href와 replace => 둘 다 user가 원하는 곳으로 이동
+
+                // location.href = document.getElementById("myurl").value; //set임(오른쪽의 값을 왼쪽에 넣는 것) , document.getElementById("myurl"). 는 textbox , locaton.href - 우리가 url에 입력하는 것과 똑같게
+                location.replace(document.getElementById("myurl").value);
+                
+            }, false);
+        }
+
+    </script>
+    
+    </head>
+    
+    <body>
+        <!--location으로 redirect-->
+        <!--redirect는 화면과 url이 똑같음  // forward 는 화면과 url이 다름-->
+        <input type="url" id="myurl"> <input type="button" id="june" value="이동하기">
+    
+    
+    </body>
+    
+    </html>

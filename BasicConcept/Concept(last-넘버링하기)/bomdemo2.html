@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Demo</title>
+        <!--누르는 버튼마다 설정해둔 페이지로 이동-->
+    <script>
+        
+    
+        
+        window.onload = function() {
+            var buttons = document.getElementsByTagName("button");
+            for(var i=0 ; i < buttons.length ; i++) 
+                buttons[i].addEventListener("click", myOpen, false); //버튼이 많지만 모든 버튼의 이벤트 핸들러(여기서는 myOpen)는 1개로.(delegation model위임형 모델)
+        }
+
+        function myOpen() {  //또는 파라미터로 evt(이벤트) 받아서 target으로 찍어도 된다.
+            // alert(this.title); //this-이벤트를 발생시킨 객체 (여기서는 button)
+            window.open(this.title, "_blank", "width=500, height=500");
+        }
+        
+
+    </script>
+
+</head>
+<body>
+
+    
+    <button title = "http://www.naver.com">네이버</button> <!--title 은 tooltip(마우스 올리면 뜨는 알림창), title속성은 엄청 자주 쓰임-->
+    <button title = "http://www.daum.com">다음카카오</button>
+    <button title = "http://www.nate.com">네이트</button>
+    <button title = "http://www.google.com">구글</button>
+
+    <script>
+        //location 객체는 user가 입력한 곳의 경로를 알 수 있다.
+        //window.location 의 window.는 생략 가능
+        //href(중요)는 location 객체의 속성 중 1개 
+        //document.write(location.href); //현재의 url을 갖고(get임)오는 것(href - user가 입력한 href) 
+
+    </script>
+
+
+</body>
+</html>

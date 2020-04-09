@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원목록</title>
+    <script>
+        //학원 0310 때 한 것
+        //bom(browser object model)로 회원목록 만드는 것!
+        //window객체임. window객체는 browser다. browser안에 들어있는 여러가지 것들을 window. 으로 호출하게 되고
+        // window안에 있는 document, link, location, history 등을 호출하는 것. 
+        // window.는 생략할 수 있다. 
+        //그래서 open이나 close를 그냥 함부로 쓰면 window. 의 것으로 인식. (self, opener, window 등으로 구별해줘야됨)
+
+        //메인창
+        //register.html과 함께
+        //이것 열어서 -> '창 열기 버튼 클릭' -> 입력한 값들이 추가됨
+        // https://youtu.be/4Xas7sHv7cY 33분부터
+        //(이어서) https://youtu.be/S-Jhwh2wUAk 24분까지
+        
+        //register.html창을 띄우는 창임
+
+        function myOpen(){
+            window.open("register.html", "_blank", "width=300, height=300, left = 500, top = 300");
+            //window.open 창을 여는 것
+            //register.html을 연다!
+        }
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href = "javascript:myOpen()">창 열기</a></li> <!--버튼과 비슷한 역할을 하기 위한 링크를 쓸 때는 javascript:myOpen()처럼 javascript:함수() -->
+        <!--클릭하면 myOpen()함수 호출-->
+        <!--버튼의 기본이벤트가 클릭이듯이 링크도 기본이벤트가 클릭이다.-->
+        <!-- 위의 링크를 클릭하면 링크로 넘어가는 것이 아니라, javasscript의 myOpen()함수를 호출--> 
+        <li>Name : <span id = "username"></span></li> <!--태그 사이에 들어가는 내용 : inner text or inner html-->
+        <li>Gender :<span id = "gender"></span> </li>
+        <li>Age : <span id = "userage"></span></li>
+        <li>City : <span id = "usercity"></span></li>
+    </ul>
+
+
+</body>
+</html>

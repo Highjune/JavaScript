@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 반복문 / 로그인</title>
+
+    <style>
+        ul {list-style-type:none;}
+        fieldset {width:350px; margin-left: auto; margin-right: auto; color: green;}
+        h1 {text-align:center;}
+        body {color: blue;}
+    </style>
+
+
+
+</head>
+<body>      
+
+    <h1>로그인 창</h1>
+    <form> <!--액션을 안쓰면 자기자신임. 없으면 action=""와 동일-->
+
+        <fieldset>
+            <legend>개인보안</legend>
+                <ul>
+                    <li>ID : <input type="text" placeholder="아이디를 입력하세요" id="id" autofocus required></li>
+                    <li>PASSWORD : <input type="password" placeholder="비밀번호 입력하세요"  id="passwd" required></li>
+                    <li><input type = "button" value="로그인" onclick = "check()"></li>  <!--우리는 아직 서버에 넣는 것이 아니므로 name이 아니로 id를 줬고 submit대신 button으로 줬다.-->
+                </ul>
+        </fieldset>
+
+    </form>
+    <script>
+        originalid = "june";  //원래는 db에 있는 것과 비교
+        originalpasswd = "1234";
+        function check(){
+            var userid = document.getElementById("id");  //텍스트 박스채로 들고왔음.
+            var passwd = document.getElementById("passwd");  //텍스트 박스채로 들고왔음.
+            if(originalid == userid.value) {
+                if(originalpasswd == passwd.value){
+                    alert("Welcome!!!회원만의 환상적인 서비스를 기대하세요! 환영합니다!");
+                    location.href = "http://www.sist.co.kr"; //브라우저의 주석부분을 location이라 한다. browser object model 이라고 함.
+                }else{
+                    alert("패스워드가 일치하지 않습니다.");
+                }
+            }else{
+                alert("입력하신 아이디가 존재하지 않습니다.");
+            }
+        }
+
+    </script>
+</body>
+</html>

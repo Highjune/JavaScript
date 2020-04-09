@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brower Object Model</title>
+    <!--BOM-->
+    <!--window 객체는 (js의 전역 객체)-->
+    <!--window객체의 하나의 property로(메서드 포함) alert는 사실 window.alert() 로 써야 되는데 앞에 window.생략 가능-->
+    <!--dom은 bom안에 속함-->
+
+</head>
+
+<body>
+    
+    <button>Open</button>&nbsp;&nbsp;<button>Close</button>
+
+    <script>
+        ///browser의 전역함수들(다 전역객체 안에 속함)
+        //cf) parseint 이런것도 다 전역객체.
+
+        // prompt, confirm, alert ==> window에서 메시지를 보여줄 수 있는 3가지
+
+        /*
+        //prompt
+        var car = {}; // object literal로 객체 만들고자 할 시 물어본 값으로 객체를 만들고자 한다면 멤버가 하나도 없는 object literal로 만들어야 한다.
+        // prompt("귀하의 생년월일은 : ", "2000-10-09");//앞에  window. 붙여야 되는데 생략가능, prompt 두번째 파라미터(default)는 ex)의 역할처럼 쓰면 된다.
+        prompt("귀하의 생년월일은(예, 2020-10-09) : ", "2000-10-09"); //그런데 보통 두번째 파라미터를 그냥 첫번쨰 파라미터 안에 같이 적어주는 편
+        // prompt는 textbox이기 때문에 아무리 숫자를 넣어도 라턴타입이 string임 (만약 숫자로 한다면 parseint로 바꿔줘야됨)
+        // prompt는 전역함수, user로부터 입력받는 것 연습
+
+        car.name = prompt("자동차의 이름 : "); //js는 자바와 달리 타입이 존재하지 않기에, 이런식으로 사용가능
+        car.price = prompt("자동차의 가격 : ");
+        car['maker'] = prompt("자동차의 메이커 : "); 
+        //car.maker와 car['maker']는 같다. 하지만 변수에 공백이 있을 경우에(공백대신 _ 언더바를 사용하면 가능하다)공백을 포함해주기 위해 ' '로 묶고 []해주는 습관을 들이면 좋다.
+        car.toString = function() { // string도 이런식으로 정의가능
+            document.write('name = ' + this.name + ',price = ' + this.price + ", maker = " + this.maker);
+        }
+        car.toString();
+        */
+        
+        
+        //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////
+        /*
+        var gender = prompt("당신의 성별은(1:남성, 2:여성)"); //글자, 숫자로도 다 받을 수 있긴 한데 다 string임
+        alert(gender);
+        var flag = confirm("귀하는 남성입니까? ");  // confirm은 오직 true / false 만 받을 수 있다.
+        alert(flag);
+        */
+        
+        
+
+//////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////  //////
+
+
+        //open버튼으로 원하는 url 열고 close버튼으로 닫기
+        
+        var buttons = document.getElementsByTagName("button"); //우리가 버튼을 2개 만들었으니 buttons로 변수줬고 Element's'복수이니 애초부터 배열이 생성.
+
+        window.onload = function(){ //dom레벨0 ('on' 때문에)
+            buttons[0].addEventListener("click", myOpen, false);  //두번쨰 변수명에(myOpen)에 open 이라는 변수는 주면 안된다. 왜냐하면 실제로 open이라는 함수가 있어서 겹침
+            buttons[1].addEventListener("click", myClose, false);
+        }
+        
+        var mywindow = null;
+
+        function myClose() {
+            mywindow.close();
+        }
+        
+        function myOpen(){
+            // alert(screen.height + "," + screen.width);//screen객체를 통해서 height, width알아냄
+            var left = screen.width / 2 - 250; //screen은 해상도 //(screen.width-500) / 2; 의 의미
+            var top = screen.height / 2 - 250; //250은 내가 준 창의 크기인 것이고, 창의 왼쪽 위 모서리에서부터 창이 시작.
+            mywindow = window.open("http://www.naver.com", "_blank",  //var mywindow 라고 하면 밖의 var mywindow와 다른 변수가 된다.안밖의 같은 변수명일 때 안에서 구분해주려고 var를 쓰는 것. var를 여기서 붙여주면 이 안에서만 유효한 지역변수가되므로
+             "width=500, height=500, left=" + left + ", top=" + top); //요즘 사실 이렇게 작은 창을 띄우지 않는다. 다 탭을 쓴다. (휴대폰같은 경우에는 창을 전혀 x)
+            //_blank - 새창
+            
+        }
+
+    
+    </script>
+    
+</body>
+
+
+</html>

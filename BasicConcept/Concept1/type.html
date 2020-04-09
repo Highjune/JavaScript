@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript의 데이터 타입</title>
+</head>
+<body>
+    <script> 
+     /*undefined과 null차이 */ 
+
+        var a; /*선언은 해줘야 된다, */
+        document.write("a= " + a);  /* 그런데 숫자, boolean 등 무엇을 넣어야 할지 모르니 undefined */
+        document.write("</br>");
+
+        var b = null; /*null은 값이다 */
+        document.write("b= " + b); /*그런데 ==으로 null과 undefined를 물어보면 같다고 나온다. */
+        document.write("</br>");
+    
+        /* string을 만들 수 있는 3가지 방법 */
+        var c1 = 'Hello'; /* 기본형 */
+        document.write('c1= ' + typeof c1 + "<br />"); //typeof는 type을 알려주는 것.
+        
+        c2 = new String('Hello') /*new를 썼으니까 참조형 String 객체 */
+        document.write('c2= ' + typeof c2 + "<br />");
+
+        c3 = String('World') /*생성자로 만든 것. 생성ㅇ자로 써도 new를 안 썼기 때문에 참조형이 아니라 기본형*/
+        document.write('c3=' + typeof c3 + "<br />");
+        /* 이렇게 무슨형인지 모르니 typeof를 써서 기본형인지 참조형인지를 확인할수 있다. */
+        
+        /*숫자도 마찬가지*/
+        /*함수를 호출할때만 typeof로 기본형, 참조형을 구분하는 것이 의미있다. 그것이 아니면 사실 구분하는 것이 큰 의미는 없다.*/
+        var d = 5;
+        document.write('d= ' + typeof d + "<br />");
+        e = new Number(5);
+        document.write('e= ' + typeof e + "<br />");
+        f = Number(5);
+        document.write('f= ' + typeof f + "<br />");
+    </script>
+
+</body>
+</html>

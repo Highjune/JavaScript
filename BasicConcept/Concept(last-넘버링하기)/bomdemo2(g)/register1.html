@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입창</title>
+    <script>
+    // bondemo1_1과 함께
+    //회원명단에 회원추가
+     
+            window.onload = function(){
+            document.getElementsByTagName("button")[0].
+            addEventListener("click", myClose, false);
+            }
+
+        function myClose(){ //닫을 때 발생(추가), 데이터들이 추가
+            var cnt = location.search.split("=")[1]; //location.href; 는 register.html?cnt=0 임. 여기서 제일 끝의 0을 원하는 것. location.search 는 ? 이후
+            //location.href; => register.html?cnt=0 임. 그런데 여기서 제일 뒤에 0의 값을 얻어야 함
+            //location.search 는 cnt=0 임 (? 다음)
+            //그래서 =기준으로 split 자르면 [0]는 cnt, [1]는 0
+            cnt = parseInt(cnt); //"0" --> 0  현재의 [n명]의 n의 값이 회원추가(url란에 ctn= 값 ) 에 들어가야됨. 회원추가에서는 받아온 숫자에 +1을 더해야 되는 상황
+            var tdNum = document.createElement("td"); //<td></td> 만듬
+            var str = document.createTextNode(++cnt); //글자 1이 됨
+            tdNum.appendChild(str); //<td>1</td>를 만든 것임
+
+            var tdName = document.createElement("td"); //<td></td>만듬
+            var username = self.document.getElementById("username").value;  //입력한 이름
+            username = document.createTextNode(username); //text를 textnode로 만듬
+            tdName.appendChild(username); //<td>한지민</td>
+
+            var tdGender = document.createElement("td"); //<td></td>만듬
+            var gender = null;
+            var genders = self.document.getElementsByName("gender");
+            if(genders[0].checked) gender = genders[0].value; //체크한 성별
+            else gender = genders[1].value;
+            gender = document.createTextNode(gender);
+            tdGender.appendChild(gender); //<td>여성</td>
+
+
+            var tdAge = document.createElement("td"); //<td></td>만듬
+            var userage = self.document.getElementById("userage").value; //입력한 나이
+            userage = document.createTextNode(userage);
+            tdAge.appendChild(userage); //<td>24</td>
+
+
+            var tdCity = document.createElement("td"); //<td></td>만듬
+            var usercity = self.document.getElementById("usercity").value; //리스트에서 선택한 도시
+            usercity = document.createTextNode(usercity);
+            tdCity.appendChild(usercity); //<td>서울</td>
+            
+            //=> 이렇게 만든 5개의 td를 아래의 tr의 자식으로 넣으면 된다.
+            
+
+            var tr = document.createElement("tr"); // <tr></tr>
+            tr.appendChild(tdNum); 
+            tr.appendChild(tdName); 
+            tr.appendChild(tdGender); 
+            tr.appendChild(tdAge); 
+            tr.appendChild(tdCity); 
+
+            opener.document.getElementById("result").appendChild(tr);
+            opener.document.getElementById("cnt").innerText = cnt;
+            
+            
+            self.close(); 
+            
+        }
+    </script>
+
+
+</head>
+<body>
+    
+    
+    <ul style = "list-style-type : none;">  
+        <li>Name : <input type = "text" id = "username"> </li>
+        <li>Gender : <input type = "radio" name = "gender" value = "남성"> Male   <!--name value id 차이-->
+                     <input type = "radio" name = "gender" value = "여성"> Female </li> <!--전송이 되는 것은 value-->
+        <li>Age : <input type = "number" id = "userage"></li>
+        <li>City : <input type = "text" id = "usercity" list = "citylist"></li>
+        <li><button>가입하기</button></li>  <!--닫기버튼 누르면 회원가입이 완료되면서 창 닫힘-->
+
+    </ul>
+
+    <datalist id = "citylist">
+        
+        <option value ="서울">서울</option>
+        <option value ="부산">부산</option>
+        <option value ="인천">인천</option>
+        <option value ="대구">대구</option>
+        <option value ="경기">경기</option>
+        <option value ="광주">광주</option>
+           
+    </datalist>
+
+
+</body>
+</html>
