@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal연습</title>
+    <script src = "js/student.js"></script>
+
+
+</head>
+
+<body>
+    
+    <h1>성적관리프로그램</h1>
+    
+    <script>
+        var sum = student['국어'] + student['영어'] + student['수학'];
+        /*var는 꼭 안 붙여도 된다. 사실 지역변수는 반드시 var를 써야 되는데 추후에 배운다*/
+        /*한글은 특수문자로 보기 때문에 [] 로 묶는 것이 안전하다 */ 
+        var avg = sum / 3. ;
+        var grade = (avg >= 90) ? 'A' :
+                      (avg >= 80) ? 'B' :
+                         (avg >= 70) ? 'C' :
+                           (avg >= 60) ? 'D' : 'F';
+    
+        document.write("<ul>");
+        document.write("<li>총점 : " + sum + "</li>")
+        document.write("<li>평균 : " + avg + "</li>")
+        document.write("<li>평점 : " + grade + "</li>")
+        document.write("</ul>");
+
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript's Function</title>
+</head>
+<body>
+   <script>
+    //boolean, number, string, undefined, null
+    // 1)
+    // function change(other){
+    //     other *= 100;
+    // }
+    // var original = 10;
+    // document.write("Before Change <br />");
+    // document.write("orignal = " + original + "<br/>");
+    // change(original);
+    // document.write("After Change <br />");
+    // document.write("orignal = " + original + "<br/>");
+
+    //2)string //string도 값이기 때문에 바뀌지 않는다.
+    // function change(other){
+    //     other += ", World";
+    //     document.write("In change() = " + other + "<br/>");
+    //     return other;
+    // }
+    // var original = "Hello"; 
+    // document.write("Before Change <br />");
+    // document.write("orignal = " + original + "<br/>");
+    // change(original);
+    // document.write("After Change <br />");
+    // document.write("orignal = " + original + "<br/>");
+
+        
+    function change(other) { //js의 배열은 collection처럼 줄어들기도 하고 늘어나기도 한다.
+        other.push("Apple"); //제일 오른쪽에 붙이는 것이 push
+        other.unshift("Computer"); //제일 왼쪽에 붙이는 것이 shift
+    }
+    var original = ["Mango", 10, 89.5, true];
+    document.write("Before Change <br />");
+    document.write("orignal = " + original + "<br/>");
+    change(original);   //배열의 주소가 넘어간 것임
+    document.write("After Change <br />");
+    document.write("orignal = " + original + "<br/>");
+    //==>이렇게 전 후가 달라졌다면!! call by reference.
+
+    </script>
+    
+</body>
+</html>

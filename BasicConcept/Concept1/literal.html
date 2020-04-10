@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literal</title>
+</head>
+<body>
+
+    <script>
+        // a=5;  /*숫자형 리터럴, 그냥 리터럴*/
+        // document.write("a = " + a + "<br />");
+        // a=89.5; /*숫자형 리터럴, 그냥 리터럴*/
+        // document.write("a = " + a + "<br />");
+        // a="Hello, World";   /*문자형 리터럴, 그냥 리터럴*/
+        // document.write("a = " + a + "<br />");
+        // a = [1, 2, 3];   /*배열형 리터럴, 그냥 리터럴이라고 한다*/
+        // document.write("a = " + a + "<br />");
+
+// 타입이 없음. 배열이란 여러가지 종류의 값을 다 넣은 것임. 배열은 리터럴(string, array, boolean 등)을 묶어놓은 것임.
+
+        // myarray = [4, true, 89.5, 'Hello, World', [1, 2, 3]];   /*myarray가 이런것들을 담기 전에 myarray=true; 이었어도 무관*/
+        // for(i=0 ; i<myarray.length ; i++){
+        //     document.write(myarray[i] + "<br/>");
+        // }
+
+        // var str = 'Hello, World';  /*str은 literal이자 instatnce(객체)이다. 그래서 주소를 갖고 있어서 str. 이라고 쓸 수 있다. 즉 값이자 주소이다. 스트링 객체*/
+        // document.write(str.length + "</br>");
+        // document.write(str.toUpperCase() + "</br>")  
+
+        // str = 123.4567;  /*숫자형 객체, 객체이므로 그 안의 메서드를 쓸 수 있다. 자바에서 이것을 따라 만든것이 autoboxing, autounboxing이다 */
+        // document.write(str.toFixed(2))  /*변수인데 이렇게 .을 쓸 수가 있다.*/
+
+        // var a = 5;
+        // document.write(typeof a + "<br/>"); /*typeof라는 연산자가 정체(타입)를 밝힐 수 있음 */
+        // a='Hello';
+        // document.write(typeof a + "<br/>");
+        // a=[1, 2, 3];
+        // document.write(typeof a + "<br/>");
+        // a={'name':'Sonata', 'price':20000000, 'maker':'Hyundai'};
+        // document.write(typeof a + "<br/>");
+
+        /*stack 과 heap로 따지지 않는다. 메모리로 안따진다. 웹이므로! */
+        
+        var car = {   /*객체를 만드는 가장 쉬운 방법, literal로 ~ */
+            'name':'Sonata', 'price':20000000, 'maker':'Hyundai',   /*name, price, maker는 property*/
+            'print' : function() {  /*객체 안에 있으므로 메서드*/
+                document.write("<br/>" + new Date() + "<br/> ");
+            }
+        };
+
+        document.write("<ul>");
+        document.write("<li>이름 : " + car.name + "</li>");         /* .으로 접근해도 되고 []로 해도 된다*/
+        document.write("<li>가격 : " + car['price'] + "</li>");  
+        document.write("<li>메이커 : " + car.maker + "</li>");
+        car.bgcolor = 'Silver';   /*위에서 정의되지 않은 것을 이렇게 만들수도 있다*/
+        document.write('<li>색상 : ' + car.bgcolor + "</li>");
+        car.print(); 
+        document.write("</ul>");
+
+    </script>
+
+</body>
+</html>
