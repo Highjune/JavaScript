@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript switch</title>
+</head>
+<body>
+    좋아하시는 계절 : <select id = "season" onchange="change()"> <!-- 클릭이 아니라 change되는 순간!(onchange) change()함수 호출-->
+                        <option value="">--선택--</option>
+                        <option value="spring">봄</option> <!--실제로 서버에 전송되는 것은 value이다. 프로그램은 value를 뽑아내는 것-->
+                        <option value="summer">여름</option>
+                        <option value="fall">가을</option>
+                        <option value="winter">겨울</option>
+                     </select>
+    <script>
+        function change(){
+            var season = document.getElementById("season"); //select tag
+            // alert("귀하가 좋아하시는 계절은" + season.value);
+            season = season.value; //spring / summer / fall / winter
+            var body = document.getElementsByTagName("body")[0] //tag로 불러오니까 여러가지 이므로 복수 elements, 그리고 그 안에서 순서가 0
+            switch(season) {
+                case "spring" :
+                    body.style.backgroundImage = "url('images/spring.jpg')";
+                    break;
+                case "summer" :
+                    body.style.backgroundImage = "url('images/summer.jpg')";
+                    break;
+                case "fall" :
+                    body.style.backgroundImage = "url('images/fall.jpg')";
+                    break;
+                case "winter" : 
+                    body.style.backgroundImage = "url('images/winter.jpg')";
+                    break;
+            }
+        }
+
+    </script>
+</body>
+</html>
