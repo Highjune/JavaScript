@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array1</title>
+</head>
+<body> 
+    <script>
+        //var array = ["Java", "Oracle", "JDBC", "HTML5", "CSS3", "JavaScript"]
+        
+          //replace
+        // var result = array.splice(2, 2, "MyBatis", "XHTML"); //2번째 위치에 2개를 "" "" 로 바꾼다.
+        // document.write(array);
+
+          //insert
+        //array.splice(2, 0, "MariaDB", "MySQL"); //insert는 두번쨰 파라미터가 0(교체할 것들이 0라는 것, 즉 빼지 않고 넣기만)
+        //document.write(array);
+
+          //delete
+        // array.splice(2, 1);
+        // document.write(array);
+    
+
+
+        //다차원배열    
+        var array = [
+            [1, 2, 3],
+            ["Mango", "Apple", "Grade", "Nuts"],
+            [89.5, 3.14]
+        ]      
+        for(var i = 0 ; i < array.length ; i++){
+            for(var j = 0 ; j < array[i].length ; j++){
+                document.write(array[i][j] + ",");
+        }
+        document.write("<br/>");
+    }
+    
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+

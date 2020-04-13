@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript User-Defined Object</title>
+
+    <script>
+        //하나의 car객체
+        function Car(name, price, maker){ // C를 대문자 쓴 이유는 클래스처럼 보이게 하려고.
+            var name = name;
+            var price = price;
+            var maker = maker;
+            this.getName = function() {return name;}
+            this.getPrice = function() {return price;}
+            this.getMaker = function() {return maker;}
+            this.toString = function() {
+                return "" + name + "," + price + ", " + maker;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+        var sonata = new Car("소나타", 25000000, "현대");
+        var matiz = new Car("마티즈", 10000000, "대우");
+        var carnival = new Car("카니발", 35000000, "기아")
+        var array = new Array(sonata, matiz, carnival);
+        var i = 0;
+        while(i<array.length){
+            document.write(array[i].toString() + "<br />");
+            i++;
+        }
+
+    </script>
+    
+</body>
+</html>

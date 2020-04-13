@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript User-Defined Object</title>
+    <script>
+/*
+객체를 만들면 var로 선언을 하지 않았기 때문에 직접 접근해서 수정이 가능하다.
+다만 생성자로 선언하지 않고 객체 리터럴을 썼기 때문에 재활용하여 쓸 수는 없다.
+*/
+        var product = {  //object 리터럴 위해 {}
+            'name' : 'Ballpen',   //여기서 ''는 다 property
+            'price' : 200,
+            'color' : 'red',
+            'toString' : function(){   
+                document.write("<p style='color:" + this.color + "'>"); 
+                document.write(this.name + "(" + this.price + ")" + "</p>"); 
+            }
+        }
+
+    </script>
+</head> 
+<body> 
+    <script>
+        product.toString(); product.color = 'blue';
+        product.toString();
+        // document.write(product.color);
+    </script>
+    
+</body>
+</html>
