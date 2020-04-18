@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Function</title>
+</head>
+<body>
+    <script>
+        
+        function test(other) {
+            // document.write(other);
+            // document.write(other.name);
+            other();
+        }
+
+        // var a = 89.5;
+        // var a= "Hello";
+        // var a = [1, 2, 3, 4];
+        // var a = {"name" : "Ballpen", "price" : 150, "maker" : "Monami"} //js에는 타입이 없으므로 받은 타입으로 결정. 그래서 function 리터럴도 넣을 수 있다.
+        var a = function() {document.write("Hello, World");} //이렇게 변수 안에 함수 저장
+        test(a);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

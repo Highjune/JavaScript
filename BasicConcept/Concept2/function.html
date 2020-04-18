@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript's Function</title>
+    <script SRC = "js/student.js"></script>
+    <script SRC = "js/output.js"></script>
+    <script SRC = "js/calc.js"></script>
+    <style>
+        ul{list-style-type: none; line-height: 200%;}
+        input:focus {background-color: grey;}
+        div{background-color: yellowgreen;}
+
+    </style>
+    
+</head>
+<body>
+    <fieldset>
+        <legend>학생 정보 입력</legend>
+        <ul>
+            <li>학번 : <input type = "text" id = "hakbun" autofocus></li>  <!-- JS에서 쓰려고 ID를 부여-->
+            <li>이름 : <input type = "text" id = "name"></li>
+            <li>국어 : <input type = "number" min= "0" max = "100" id = "kor"></li>
+            <li>영어 : <input type = "number" min= "0" max = "100" id = "eng"></li>
+            <li>수학 : <input type = "number" min= "0" max = "100" id = "mat"></li>
+            <li><input type = "button" value = "입력하기" onclick = "input()"> 
+                <input type = "button" value = "다시하기" onclick = "myclear()"></li> 
+        </ul>
+    </fieldset>
+
+    <div id = "result"></div>
+
+    <script> 
+    //잘 안 쓰는 방법(객체처럼 쓰지 않고 안에 함수를 썼으므로 잘 안 쓴다)
+        // var car = {  //object literal은 무조건 {}안에 쓴다.
+        //     "name" : "Sonata",
+        //     "price" : "25000000",
+        //     "maker" : "Hyundai",
+        //     "toString" : function() {
+        //         document.write("Sonata's price is 25000000.");
+        //     }
+        // };
+        // car.toString()
+
+        //입력하기(누르면 입력한 것들을 토대로 계산해서 결과값 출력output)
+        function input() {
+            var hakbun = document.getElementById("hakbun").value;
+            var name = document.getElementById("name").value;
+            var kor = parseInt(document.getElementById("kor").value);
+            var eng = parseInt(document.getElementById("eng").value);
+            var mat = parseInt(document.getElementById("mat").value);
+            var chulsu = new Student(hakbun, name, kor, eng, mat);
+            calc(chulsu); //call by reference임. 기본 타입 5가지 제외는 무조건 다 call by reference.
+            output(chulsu);
+        }
+
+        //다시하기
+        function myclear() {
+            document.getElementById("hakbun").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("kor").value = "";
+            document.getElementById("eng").value = "";
+            document.getElementById("mat").value = "";
+            document.getElementById("result").innerText = ""; 
+        }
+   
+    </script>
+
+</body>
+</html>
+
+

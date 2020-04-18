@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Function(함수 안의 함수)</title>
+</head>
+<body>
+    <script>
+
+        /*  closure
+            내부 함수의 원칙
+            1. 안쪽 함수는 외부에서 접근 불가
+            2. outer() 함수는 inner()의 변수에 접근 불가
+            3. inner()함수는 outer()의 변수 접근 가능.
+        */
+
+        function outer(who) {
+            return function inner(greet) {return who + " " + greet; };
+        }
+
+        var result = outer("한지민");
+        document.write(result("Good Morning!!") + "<br />"); //outer외부함수가 끝났음에도 불구하고 greet이 전역변수처럼 살아있는 이유는 외부 주소를 갖고 있기 때문이다.
+      
+        var result = outer("김지민");
+        document.write(result("Good Night!!"));
+    
+    </script>    
+</body>
+</html>

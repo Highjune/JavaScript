@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management Program(입력한 데이터를 표에 추가)</title>
+    <script src = "js/car.js"></script> 
+
+</head>
+
+<body>
+
+    <fieldset>
+        <lenged>자동차 등록 내용</lenged>
+        <ul>
+            <li>자동차 이름 : <input type="text" id = "name" required autofocus>  </li>
+            <li>자동차 가격 : <input type="number" id = "price" required>  </li>
+            <li>자동차 메이커 : <input type="text" id = "maker" required>  </li>
+            <li><input type="button" value = "등록하기" onclick="input()">  </li> 
+        </ul>
+    </fieldset>
+
+    <hr>
+
+    <h2>자동차 목록 페이지</h2>
+    <table border = "1">
+        <thead>
+            <tr>
+                <th>번호</th><th>이름</th><th>가격</th><th>메이커</th>
+            </tr>
+        </thead>
+        <tbody id = "result">
+        </tbody>
+    </table>
+
+
+    <script>
+
+        array = new Array();
+        printLabel();
+
+        function input() {
+            var name = document.getElementById("name").value;
+            var price = document.getElementById("price").value; 
+            var maker = document.getElementById("maker").value; 
+            var car = new Car(name, price, maker);
+            array.push(car); //배열에 넣음. 배열 뒤 넣고/빼기 : push/pop, 배열 앞 넣고/빼기 : unshift/shift
+            output();    
+        }
+
+        function printLabel() {
+
+        }
+
+        function output() {
+            var str = "";
+            for(var i = 0 ; i < array.length ; i++) {
+                str += "<tr><td>" + (i+1) + "</td><td>" +
+                        array[i].getName() + "</td><td>" +
+                        array[i].getPrice() + "</td><td>" +
+                        array[i].getMaker() + "</td><tr>";
+            }
+
+            document.getElementById("result").innerHTML = str;
+        }
+
+    </script>
+</body>
+</html>
+
+
